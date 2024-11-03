@@ -1,0 +1,24 @@
+const celsiusInput = document.getElementById("celsius");
+const fahrenheitInput = document.getElementById("fahrenheit");
+
+celsiusInput.addEventListener("input", () => {
+    const celsius = parseFloat(celsiusInput.value);
+    const fahrenheit = (celsius * 9 / 5) + 32;
+    if (!isNaN(fahrenheit)) {
+        // Round to 2 decimal places
+        fahrenheitInput.value = fahrenheit.toFixed(2); 
+    } else {
+        fahrenheitInput.value = '';
+    }
+});
+
+fahrenheitInput.addEventListener("input", () => {
+    const fahrenheit = parseFloat(fahrenheitInput.value);
+    const celsius = (fahrenheit - 32) * 5 / 9;
+    if (!isNaN(celsius)) {
+        // Round to 2 decimal places
+        celsiusInput.value = celsius.toFixed(2); 
+    } else {
+        celsiusInput.value = '';
+    }
+});
